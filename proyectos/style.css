@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header{
+    background-color: #08708A;
+    font-size: 50px;
+    padding: 10px 20px;
+}
+a.title{
+    color: #d6da0a;
+    text-decoration: none;
+    font-style: oblique;
+    font-size: large;
+}
+nav{
+    background-color: #d73a31;
+}
+div.jorge{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+ul.fila{
+  display: flex;             /* Alinea los elementos horizontalmente */
+  gap: 20px;                 /* Espacio opcional entre cada elemento */
+  list-style: none;          /* Elimina los puntos de la lista */
+  padding: 0;                /* Elimina el margen interno por defecto */
+  margin: 0;
+}
+a.in{
+    color: aliceblue;
+    text-decoration: none;
+    font-style: italic;
+}
+article{
+    background-color: #56b1bf;
+}
+

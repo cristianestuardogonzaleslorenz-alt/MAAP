@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador Funcional</title>
+</head>
+<body>
+
+    <div class="contenedor-busqueda">
+        <form id="formulario-busqueda">
+            <input type="search" id="caja-busqueda" placeholder="Buscar productos, artículos..." autocomplete="off">
+            <button type="submit">Buscar</button>
+        </form>
+        
+        <!-- Aquí se mostrarán los resultados -->
+        <ul id="lista-resultados"></ul>
+    </div>
+
+</body>
+</html>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.contenedor-busqueda {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="search"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#lista-resultados {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+#lista-resultados li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#lista-resultados li:hover {
+    background-color: #f9f9f9;
+}
+</style>
+<script>
+// Tus datos (pueden venir de una base de datos o API)
+const elementos = ["Manzanas", "Plátanos", "Naranjas", "Uvas", "Peras", "Sandía"];
+
+const cajaBusqueda = document.getElementById("caja-busqueda");
+const listaResultados = document.getElementById("lista-resultados");
+
+// Función para mostrar resultados
+function mostrarResultados(resultados) {
+    listaResultados.innerHTML = ""; // Limpiar resultados anteriores
+    
+    resultados.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        listaResultados.appendChild(li);
+    });
+}
+
+// Filtrar elementos al escribir
+cajaBusqueda.addEventListener("input", (e) => {
+    const textoFiltro = e.target.value.toLowerCase();
+    
+    // Si no hay texto, limpia la lista
+    if (textoFiltro === "") {
+        listaResultados.innerHTML = "";
+        return;
+    }
+
+    const resultadosFiltrados = elementos.filter(item => 
+        item.toLowerCase().includes(textoFiltro)
+    );
+    
+    mostrarResultados(resultadosFiltrados);
+});
+</script>
